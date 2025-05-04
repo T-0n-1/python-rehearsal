@@ -20,7 +20,7 @@ Y88b.   888888 d88P888  888Y8b.    888
 
 def user_input_message():
     return input("Enter a message: ").lower()
-        
+
 
 def letter_shift():
     while True:
@@ -55,15 +55,21 @@ def decode_message(message, shift):
 
 def main():
     while True:
-        os.system('cls' if os.name == 'nt' else 'clear')
+        os.system("cls" if os.name == "nt" else "clear")
         print(f"{logo}")
         print()
-        choice = input("Would You like to [E]ncode or [D]ecode a message or [Q]uit? ").lower()
+        choice = input(
+            "Would You like to [E]ncode or [D]ecode a message or [Q]uit? "
+        ).lower()
         if choice == "e":
-            print(f"Encoded message: {encode_message(user_input_message(), letter_shift())}")
+            print(
+                f"Encoded message: {encode_message(user_input_message(), letter_shift())}"
+            )
             getpass("Press Enter to continue...")
         elif choice == "d":
-            print(f"Decoded message: {decode_message(user_input_message(), letter_shift())}")
+            print(
+                f"Decoded message: {decode_message(user_input_message(), letter_shift())}"
+            )
             getpass("Press Enter to continue...")
         elif choice == "q":
             print("Goodbye!")

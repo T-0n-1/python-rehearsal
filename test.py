@@ -158,23 +158,20 @@ def calculate_love_score(name1, name2):
 """
 
 
-student_scores = {
-    'Harry': 88,
-    'Ron': 78,
-    'Hermione': 95,
-    'Draco': 75,
-    'Neville': 60
-}
+student_scores = {"Harry": 88, "Ron": 78, "Hermione": 95, "Draco": 75, "Neville": 60}
 
 # LIST COMPREHENSION
 # {key_expression: value_expression for item in iterable}
 
 student_grades = {
     name: (
-        "Outstanding" if score > 90 else
-        "Exceeds Expectations" if score > 80 else
-        "Acceptable" if score > 70 else
-        "Fail"
+        "Outstanding"
+        if score > 90
+        else (
+            "Exceeds Expectations"
+            if score > 80
+            else "Acceptable" if score > 70 else "Fail"
+        )
     )
     for name, score in student_scores.items()
 }

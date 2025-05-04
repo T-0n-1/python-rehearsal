@@ -2,7 +2,7 @@ from getpass import getpass
 from os import system, name as osName
 
 
-bidder_list: dict[str, str] = {} 
+bidder_list: dict[str, str] = {}
 ascii_gavel = """
    ___________
    \\         /
@@ -19,7 +19,7 @@ ascii_gavel = """
 
 
 def clear_screen():
-    system('cls' if osName == 'nt' else 'clear')
+    system("cls" if osName == "nt" else "clear")
 
 
 def get_bidder_name():
@@ -39,7 +39,9 @@ def get_bidder_bid(name):
 
 def another_auction():
     bidder_list.clear()
-    another_auction = input("Would you like to take a part in another auction? (Y/N): ").upper()
+    another_auction = input(
+        "Would you like to take a part in another auction? (Y/N): "
+    ).upper()
     if another_auction == "Y":
         main()
     else:

@@ -2,39 +2,92 @@ import random
 import os
 
 
-words = ["python", "hangman", "programming", "challenge",
-        "computer", "science", "artificial", "intelligence",
-        "machine", "learning", "data", "analysis",
-        "visualization", "statistics", "algorithm", "function",
-        "variable", "loop", "condition", "array",
-        "string", "object", "class", "inheritance",
-        "encapsulation", "polymorphism", "recursion", "debugging",
-        "exception", "syntax", "semantic", "compiler", 
-        "interpreter", "framework", "library", "module",
-        "repository", "version", "control", "git",
-        "github", "collaboration", "deployment", "integration",
-        "testing", "automation", "continuous", "delivery",
-        "devops", "agile", "scrum", "kanban",
-        "sprint", "backlog", "standup", "retrospective",
-        "user", "story", "requirement", "specification",
-        "design", "architecture", "database", "sql",
-        "nosql", "mongodb", "postgresql", "mysql",
-        "redis"]
+words = [
+    "python",
+    "hangman",
+    "programming",
+    "challenge",
+    "computer",
+    "science",
+    "artificial",
+    "intelligence",
+    "machine",
+    "learning",
+    "data",
+    "analysis",
+    "visualization",
+    "statistics",
+    "algorithm",
+    "function",
+    "variable",
+    "loop",
+    "condition",
+    "array",
+    "string",
+    "object",
+    "class",
+    "inheritance",
+    "encapsulation",
+    "polymorphism",
+    "recursion",
+    "debugging",
+    "exception",
+    "syntax",
+    "semantic",
+    "compiler",
+    "interpreter",
+    "framework",
+    "library",
+    "module",
+    "repository",
+    "version",
+    "control",
+    "git",
+    "github",
+    "collaboration",
+    "deployment",
+    "integration",
+    "testing",
+    "automation",
+    "continuous",
+    "delivery",
+    "devops",
+    "agile",
+    "scrum",
+    "kanban",
+    "sprint",
+    "backlog",
+    "standup",
+    "retrospective",
+    "user",
+    "story",
+    "requirement",
+    "specification",
+    "design",
+    "architecture",
+    "database",
+    "sql",
+    "nosql",
+    "mongodb",
+    "postgresql",
+    "mysql",
+    "redis",
+]
 
 
 visuals = [
-        """
+    """
            -----
            
         """,
-        """
+    """
            -----
            |   |
            |
            |
            |
         """,
-        """
+    """
            -----
            |   |
            |   O
@@ -42,7 +95,7 @@ visuals = [
            |
            |
         """,
-        """
+    """
            -----
            |   |
            |   O
@@ -50,7 +103,7 @@ visuals = [
            |
            |
         """,
-        """
+    """
            -----
            |   |
            |   O
@@ -58,15 +111,15 @@ visuals = [
            |  /
            |
         """,
-        """
+    """
            -----
            |   |
            |   O
            |  /|\\
            |  / \\
            |
-        """
-    ]
+        """,
+]
 
 
 def get_random_word():
@@ -83,7 +136,7 @@ def play_hangman():
     wrong_guesses = 0
     guessed_word = ["_"] * len(word)
 
-    os.system('cls' if os.name == 'nt' else 'clear')
+    os.system("cls" if os.name == "nt" else "clear")
     print("Welcome to Hangman!")
     print(print_visuals(wrong_guesses))
     print("Word: " + " ".join(guessed_word))
@@ -101,7 +154,7 @@ def play_hangman():
 
         guessed_letters.append(guess)
 
-        os.system('cls' if os.name == 'nt' else 'clear')
+        os.system("cls" if os.name == "nt" else "clear")
         if guess in word:
             for index, letter in enumerate(word):
                 if letter == guess:
@@ -124,10 +177,10 @@ def main():
     while True:
         play_hangman()
         play_again = input("Do you want to play again? (y/n): ").lower()
-        if play_again != 'y':
+        if play_again != "y":
             print("Thanks for playing!")
             break
-        os.system('cls' if os.name == 'nt' else 'clear')
+        os.system("cls" if os.name == "nt" else "clear")
 
 
 if __name__ == "__main__":

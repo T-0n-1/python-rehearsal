@@ -30,20 +30,22 @@ art_gallery = {
 
 
 def drawRandomChoice():
-    options = ['rock', 'paper', 'scissors']
+    options = ["rock", "paper", "scissors"]
     random_choice = random.choice(options)
     return random_choice
 
 
 def getUserChoice():
-    user_choice = input("What do you choose - rock, paper or scissors? Type [R / P / S]: ").lower()
+    user_choice = input(
+        "What do you choose - rock, paper or scissors? Type [R / P / S]: "
+    ).lower()
     if user_choice == "r":
         user_choice = "rock"
     elif user_choice == "p":
         user_choice = "paper"
     elif user_choice == "s":
         user_choice = "scissors"
-    else: 
+    else:
         print("Invalid choice. Please try again.")
         return getUserChoice()
     return user_choice
@@ -52,9 +54,11 @@ def getUserChoice():
 def determine_winner(user_choice, computer_choice):
     if user_choice == computer_choice:
         return "It's a draw!"
-    elif (user_choice == "rock" and computer_choice == "scissors") or \
-         (user_choice == "paper" and computer_choice == "rock") or \
-         (user_choice == "scissors" and computer_choice == "paper"):
+    elif (
+        (user_choice == "rock" and computer_choice == "scissors")
+        or (user_choice == "paper" and computer_choice == "rock")
+        or (user_choice == "scissors" and computer_choice == "paper")
+    ):
         return "You win!"
     else:
         return "You lose!"
@@ -68,7 +72,7 @@ def play_game():
     print("Scissors beats Paper")
     print("Paper beats Rock")
     print()
-    
+
     user_choice = getUserChoice()
     computer_choice = drawRandomChoice()
 

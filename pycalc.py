@@ -23,7 +23,7 @@ calculator = """
 
 
 def clear_screen():
-    system('cls' if osName == 'nt' else 'clear')
+    system("cls" if osName == "nt" else "clear")
 
 
 def print_calculator(line1, line2):
@@ -41,9 +41,9 @@ def program_exit():
 def get_number():
     while True:
         number = input("Enter a number: ")
-        if number.replace('.', '', 1).isdigit():
+        if number.replace(".", "", 1).isdigit():
             return float(number)
-        elif number.lower() == 'q':
+        elif number.lower() == "q":
             program_exit()
         else:
             print("Please enter a valid number.")
@@ -53,9 +53,9 @@ def get_number():
 def get_operator():
     while True:
         operator = input("Enter an operator (+, -, *, /): ")
-        if operator in ['+', '-', '*', '/']:
+        if operator in ["+", "-", "*", "/"]:
             return operator
-        elif operator.lower() == 'q':
+        elif operator.lower() == "q":
             program_exit()
         else:
             print("Please enter a valid operator.")
@@ -63,20 +63,20 @@ def get_operator():
 
 
 def calculate(number1, operator, number2):
-    if operator == '+':
+    if operator == "+":
         return number1 + number2
-    elif operator == '-':
+    elif operator == "-":
         return number1 - number2
-    elif operator == '*':
+    elif operator == "*":
         return number1 * number2
-    elif operator == '/':
+    elif operator == "/":
         if number2 != 0:
             return number1 / number2
         else:
             return "zero div.error"
-        
 
-def display_number(number, line1): 
+
+def display_number(number, line1):
     line1 += str(number)
     return line1
 

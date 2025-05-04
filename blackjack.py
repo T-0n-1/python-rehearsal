@@ -47,19 +47,69 @@ card_blueprint_templates = {
     |   .   |
     |_____{value:>2}|
     """,
-    "backside" : """
+    "backside": """
      _______ 
     |,',',',|
     |,',',',|
     |,',',',|
     |,',',',|
     |_'_'_'_|
-    """
+    """,
 }
-clean_deck = [("h","a"), ("h",2), ("h",3), ("h",4), ("h",5), ("h",6), ("h",7), ("h",8), ("h",9), ("h",10), ("h","j"), ("h","q"), ("h","k"),
-             ("d","a"), ("d",2), ("d",3), ("d",4), ("d",5), ("d",6), ("d",7), ("d",8), ("d",9), ("d",10), ("d","j"), ("d","q"), ("d","k"),
-             ("s","a"), ("s",2), ("s",3), ("s",4), ("s",5), ("s",6), ("s",7), ("s",8), ("s",9), ("s",10), ("s","j"), ("s","q"), ("s","k"),
-             ("c","a"), ("c",2), ("c",3), ("c",4), ("c",5), ("c",6), ("c",7), ("c",8), ("c",9), ("c",10), ("c","j"), ("c","q"), ("c","k")]
+clean_deck = [
+    ("h", "a"),
+    ("h", 2),
+    ("h", 3),
+    ("h", 4),
+    ("h", 5),
+    ("h", 6),
+    ("h", 7),
+    ("h", 8),
+    ("h", 9),
+    ("h", 10),
+    ("h", "j"),
+    ("h", "q"),
+    ("h", "k"),
+    ("d", "a"),
+    ("d", 2),
+    ("d", 3),
+    ("d", 4),
+    ("d", 5),
+    ("d", 6),
+    ("d", 7),
+    ("d", 8),
+    ("d", 9),
+    ("d", 10),
+    ("d", "j"),
+    ("d", "q"),
+    ("d", "k"),
+    ("s", "a"),
+    ("s", 2),
+    ("s", 3),
+    ("s", 4),
+    ("s", 5),
+    ("s", 6),
+    ("s", 7),
+    ("s", 8),
+    ("s", 9),
+    ("s", 10),
+    ("s", "j"),
+    ("s", "q"),
+    ("s", "k"),
+    ("c", "a"),
+    ("c", 2),
+    ("c", 3),
+    ("c", 4),
+    ("c", 5),
+    ("c", 6),
+    ("c", 7),
+    ("c", 8),
+    ("c", 9),
+    ("c", 10),
+    ("c", "j"),
+    ("c", "q"),
+    ("c", "k"),
+]
 card_value = {
     "a": 11,
     2: 2,
@@ -73,7 +123,7 @@ card_value = {
     10: 10,
     "j": 10,
     "q": 10,
-    "k": 10
+    "k": 10,
 }
 card_label = {
     "a": "A",
@@ -88,18 +138,13 @@ card_label = {
     7: "7",
     8: "8",
     9: "9",
-    10: "10"
+    10: "10",
 }
-card_suit = {
-    "h": "heart",
-    "d": "diamond",
-    "s": "spade",
-    "c": "club"
-}
+card_suit = {"h": "heart", "d": "diamond", "s": "spade", "c": "club"}
 
 
 def clear_screen():
-    system('cls' if os_name == 'nt' else 'clear')
+    system("cls" if os_name == "nt" else "clear")
 
 
 def build_game_deck(deck):
@@ -210,7 +255,9 @@ def computer_turn(player_hand, dealer_hand, game_deck):
     if dealer_lose == True:
         return "Dealer bust - You win!"
     else:
-        if dealer_hand_sum < player_hand_sum or (dealer_hand_sum == player_hand_sum and dealer_hand_sum < 21):
+        if dealer_hand_sum < player_hand_sum or (
+            dealer_hand_sum == player_hand_sum and dealer_hand_sum < 21
+        ):
             dealer_hand.append(game_deck.pop(0))
             return computer_turn(player_hand, dealer_hand, game_deck)
         elif dealer_hand_sum > player_hand_sum:
@@ -220,11 +267,12 @@ def computer_turn(player_hand, dealer_hand, game_deck):
 
 
 def program_ending():
-    if (input("Do you want to play again? (y/n): ").lower() == "y"):
+    if input("Do you want to play again? (y/n): ").lower() == "y":
         main()
     else:
         print("Thanks for playing!")
         exit()
+
 
 def main():
     game_deck = build_game_deck(clean_deck)
@@ -246,7 +294,7 @@ def main():
         print(message)
         sleep(1)
     program_ending()
-    
+
 
 if __name__ == "__main__":
     main()
