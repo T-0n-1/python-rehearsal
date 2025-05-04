@@ -75,6 +75,21 @@ card_value = {
     "q": 10,
     "k": 10
 }
+card_label = {
+    "a": "A",
+    "j": "J",
+    "q": "Q",
+    "k": "K",
+    2: "2",
+    3: "3",
+    4: "4",
+    5: "5",
+    6: "6",
+    7: "7",
+    8: "8",
+    9: "9",
+    10: "10"
+}
 card_suit = {
     "h": "heart",
     "d": "diamond",
@@ -115,8 +130,8 @@ def print_cards_side_by_side(cards, hide_first=False):
             art = card_blueprint_templates["backside"]
         else:
             suit = card_suit[card[0]]
-            value = card_value[card[1]]
-            art = card_blueprint_templates[suit].format(value=value)
+            display = card_label[card[1]]
+            art = card_blueprint_templates[suit].format(value=display)
         lines = art.strip("\n").split("\n")
         card_lines.append(lines)
     for i in range(len(card_lines[0])):
