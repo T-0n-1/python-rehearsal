@@ -1,7 +1,7 @@
-from random import choice, shuffle
-from os import system, name as os_name
-from time import sleep
 from bjdata import * 
+from os import system, name as os_name
+from random import choice, shuffle
+from time import sleep
 
 
 def program_ending():
@@ -91,15 +91,15 @@ def print_cards_side_by_side(cards, hide_first=False):
         print()
 
 
-def print_computer_hand(dealer_hand):
-    print("Dealer's hand:")
-    print_cards_side_by_side(dealer_hand, hide_first=True)
-    print()
-
-
 def print_player_hand(player_hand):
     print("Your hand:")
     print_cards_side_by_side(player_hand)
+    print()
+
+
+def print_computer_hand(dealer_hand):
+    print("Dealer's hand:")
+    print_cards_side_by_side(dealer_hand, hide_first=True)
     print()
 
 
